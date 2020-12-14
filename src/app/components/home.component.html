@@ -1,0 +1,5 @@
+<ul class="list-group">
+    <li *ngFor = "let l of countries" class="list-group-item d-flex justify-content-between align-items-center">        
+        <a *ngIf = "l" (click) = "getCountry(l)" class="list-group-item list-group-item-action list-group-item-primary">{{l}}</a>
+    </li>
+  </ul>
