@@ -1,7 +1,28 @@
-<div class="card" style="width: 18rem;">
+<!-- <div class="card" style="width: 18rem;">
     <div *ngFor = "let c of countryDetails" class="card-body">
       <h5 class="card-title">{{c.country}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{c.price}}</h6>
       <p class="card-text">{{c.title}}</p>
     </div>
-  </div>
+</div> -->
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let c of countryDetails">
+      <a (click) = "getWineDetails(c._id)" class="list-group-item list-group-item-action list-group-item-primary">      
+        <td>{{c.title}}</td>
+      </a>
+      <td>${{c.price}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click) = prevPage() *ngIf = "notstartofpage" type="submit" class = "btn btn-primary mx-2 float-right">Previous</button>
+<button (click) = nextPage() *ngIf = "notendofpage" type="submit" class = "btn btn-primary float-right">Next</button>

@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   async ngOnInit(): Promise<void> {
 
     this.countries = await this.wine.getCountries()
-    console.info(this.countries)
   }
 
   async getCountry(country){

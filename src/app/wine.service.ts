@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
 @Injectable()
@@ -7,18 +7,25 @@ import { Injectable } from "@angular/core";
 export class Wine {
     
     country = ""
+    countryItemsCount = 0
 
     constructor(private http:HttpClient){}
 
     async getCountries(){
         const countries = await this.http.get<any>('/countries').toPromise()
-        console.info(countries)
         return countries
     }
 
-    async getCountry(){
+    async getCountry(OFFSET, LIMIT){
 
-        const result = await this.http.get<any>('/country/'+this.country).toPromise()
+        const params = new HttpParams()
+        .set('country', this.country)
+        .set('offset', String(OFFSET))
+        .set('limit', String(LIMIT))
+
+        this.countryItemsCount = await this.http.get<any>('/countryItemsCount', {params: params}).toPromise()
+
+        const result = await this.http.get<any>('/country', {params: params}).toPromise()
         return result
     }
 

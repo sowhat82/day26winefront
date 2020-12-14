@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home.component';
 import { Wine } from './wine.service';
 import { CountryComponent } from './components/country.component';
 import { Routes, RouterModule } from '@angular/router';
+import { WineDetailsComponent } from './components/wine-details.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    CountryComponent
+    CountryComponent,
+    WineDetailsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)
