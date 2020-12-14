@@ -1,1 +1,13 @@
-<p>wine-details works!</p>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{wineDetails[0].title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Price: ${{wineDetails[0].points}}</h6>
+      <p class="card-text">{{wineDetails[0].description}}</p>
+      
+      Reviewer's Twitter Handle
+      <a href="https://twitter.com/{{wineDetails[0].taster_twitter_handle}}" target = "_blank" class="card-link"> {{wineDetails[0].taster_twitter_handle}}</a>
+    </div>
+  </div>
+<br>
+<button type="button" class="btn btn-primary mx-2" [routerLink] = "['/country']">Back</button>
+<button type="button" class="btn btn-primary mx-2" [routerLink] = "['/']">Home</button>

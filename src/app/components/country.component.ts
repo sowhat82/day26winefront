@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Wine } from '../wine.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class CountryComponent implements OnInit {
   notstartofpage = false 
   notendofpage =  true
 
-  constructor(private wine: Wine) { }
+  constructor(private wine: Wine, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
 
@@ -44,6 +45,9 @@ export class CountryComponent implements OnInit {
     this.notendofpage = !(this.OFFSET+this.LIMIT>=this.wine.countryItemsCount)  }
 
   getWineDetails(wineID){
-    
+    this.wine.wineID = wineID
+
+    this.router.navigate(['/wineDetails'])
+
   }
 }

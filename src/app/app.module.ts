@@ -12,6 +12,7 @@ import { WineDetailsComponent } from './components/wine-details.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'country', component: CountryComponent },
+  { path: 'wineDetails', component: WineDetailsComponent },
   ];
 
 @NgModule({

@@ -8,6 +8,7 @@ export class Wine {
     
     country = ""
     countryItemsCount = 0
+    wineID = ""
 
     constructor(private http:HttpClient){}
 
@@ -29,5 +30,14 @@ export class Wine {
         return result
     }
 
+    async getWineDetails(){
+        console.info('winedetails: ')
+
+        const wineDetails = await this.http.get<any>('/wineDetails/'+this.wineID).toPromise()
+        console.info('winedetails: ' ,wineDetails)
+
+        return wineDetails
+
+    }
 
 }

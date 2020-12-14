@@ -1,4 +1,7 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Wine } from '../wine.service';
 
 @Component({
   selector: 'app-wine-details',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WineDetailsComponent implements OnInit {
 
-  constructor() { }
+  wineDetails: any
 
-  ngOnInit(): void {
+  constructor(private wine: Wine, private router: Router) { }
+
+  async ngOnInit(): Promise<void> {
+
+    this.wineDetails = await this.wine.getWineDetails()
+
   }
 
 }
