@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
 @Injectable()
@@ -31,11 +31,22 @@ export class Wine {
     }
 
     async getWineDetails(){
-        console.info('winedetails: ')
 
         const wineDetails = await this.http.get<any>('/wineDetails/'+this.wineID).toPromise()
-        console.info('winedetails: ' ,wineDetails)
 
+        // add to SQL with data received
+        const params = new HttpParams()
+        .set('wineName', wineDetails[0].title)
+        .set('wineID', wineDetails[0]._id)
+    
+        console.info('winedetails: ' , params)
+
+        const httpHeaders = new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    
+        await this.http.post('/addWineDetails', params, {headers: httpHeaders}).toPromise()
+
+        // return data to be rendered
         return wineDetails
 
     }

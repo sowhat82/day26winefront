@@ -19,12 +19,13 @@ export class CountryComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
 
+    // get list of wines for the country
     this.countryDetails = await this.wine.getCountry(this.OFFSET, this.LIMIT)
 
+    // to show/hide buttons
     this.notstartofpage = !(this.OFFSET==0)
     this.notendofpage = !(this.OFFSET+this.LIMIT>=this.wine.countryItemsCount)
   
-    console.info(this.countryDetails)
 
   }
 
@@ -38,13 +39,14 @@ export class CountryComponent implements OnInit {
 
   async prevPage(){
     this.OFFSET -= this.LIMIT
-
     this.countryDetails = await this.wine.getCountry(this.OFFSET, this.LIMIT)
 
     this.notstartofpage = !(this.OFFSET==0)
     this.notendofpage = !(this.OFFSET+this.LIMIT>=this.wine.countryItemsCount)  }
 
   getWineDetails(wineID){
+
+    //store wineID in the wine service
     this.wine.wineID = wineID
 
     this.router.navigate(['/wineDetails'])
