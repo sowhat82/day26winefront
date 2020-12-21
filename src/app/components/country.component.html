@@ -6,7 +6,7 @@
     </div>
 </div> -->
 
-<h2>Wines of {{countryDetails[0].country}}</h2>
+<h2>Wines of {{countryDetails[0]?.country}}</h2>
 <table class="table">
   <thead>
     <tr>
@@ -25,7 +25,7 @@
 </table>
 
       <button (click) = prevPage() *ngIf = "notstartofpage" type="submit" class = "btn btn-primary mx-2 float-right">Previous</button>  
-      <button (click) = nextPage() *ngIf = "notendofpage" type="submit" class = "btn btn-primary float-right">Next</button>
+      <button (click) = nextPage() *ngIf = "notendofpage" type="submit" class = "btn btn-primary mx-2 float-right">Next</button>
   
   <hr>
       <button type="button" class="btn btn-primary mx-2 ml-auto" [routerLink] = "['/']">Back</button>

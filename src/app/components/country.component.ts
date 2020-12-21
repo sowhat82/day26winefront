@@ -9,7 +9,7 @@ import { Wine } from '../wine.service';
 })
 export class CountryComponent implements OnInit {
 
-  countryDetails: any
+  countryDetails: any = []
   OFFSET = 0
   LIMIT = 10
   notstartofpage = false 

@@ -39,12 +39,11 @@ export class Wine {
         .set('wineName', wineDetails[0].title)
         .set('wineID', wineDetails[0]._id)
     
-        console.info('winedetails: ' , params)
-
-        const httpHeaders = new HttpHeaders()
-        .set('Content-Type', 'application/x-www-form-urlencoded')
+        // add clicked wine into an sql database as "cookies"
+        // const httpHeaders = new HttpHeaders()
+        // .set('Content-Type', 'application/x-www-form-urlencoded')
     
-        await this.http.post('/addWineDetails', params, {headers: httpHeaders}).toPromise()
+        // await this.http.post('/addWineDetails', params, {headers: httpHeaders}).toPromise()
 
         // return data to be rendered
         return wineDetails

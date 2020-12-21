@@ -10,7 +10,7 @@ import { Wine } from '../wine.service';
 })
 export class WineDetailsComponent implements OnInit {
 
-  wineDetails: any
+  wineDetails: any = []
 
   constructor(private wine: Wine, private router: Router) { }
 
